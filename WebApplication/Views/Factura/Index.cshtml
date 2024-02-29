@@ -1,0 +1,89 @@
+﻿<div class="text-center">
+    <h1 class="display-4">Facturas</h1>
+    <hr />
+</div>
+
+<div ng-app="mainApp" ng-controller="ventasController" ng-init="initApp()">
+    <div class="container">
+
+        <div class="input-group mb-3">
+            <h2>Facturas correspondients a {{informacionPersona}}</h2>
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalAddFactura">Agregar nueva Factura</button>
+        </div>
+
+        @* Toast (mensaje confirmacion, error, etc) *@
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Facturas</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    {{message}}
+                </div>
+            </div>
+        </div>
+        @*Fin Toast (mensaje confirmacion, error, etc) *@
+
+        @* tabla que muestra las personas registradas *@
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th hidden><label> ID</label> </th>
+                        <th><label> Monto</label> </th>
+                        <th><label> Fecha</label> </th>
+                        <th><label> Identificacion Persona</label> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in lstFactura">
+                        <td hidden>{{item.id}}</td>
+                        <td >$ {{item.monto}}</td>
+                        <td >{{item.fecha}}</td>
+                        <td >{{itemPersona.identificacion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        @*Fin tabla que muestra las personas registradas *@
+    </div>
+
+
+
+    @* Modal para agregar registro de factura *@
+    <div class="modal fade" id="modalAddFactura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Formulario de registro de factura</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Monto:</label>
+                            <input type="number" class="form-control" ng-model="objFacturaAdd.monto">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Fecha:</label>
+                            <input type="date" id="dtTxt" name="dtTxt" data-date-format="DD MMMM YYYY" class="form-control" ng-model="objFacturaAdd.fecha">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" ng-click="addFactura()" data-bs-dismiss="modal">Añadir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* Fin Modal para agregar registro de factura *@
+
+
+</div>
+
+@section Scripts {
+    <script src="~/scripts/app/ventas/ventascontroller.js"></script>
+    <script src="~/scripts/app/ventas/ventasservicio.js"></script>
+}

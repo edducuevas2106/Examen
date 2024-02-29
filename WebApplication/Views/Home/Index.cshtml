@@ -1,0 +1,116 @@
+﻿<div class="text-center">
+    <h1 class="display-4">Personas</h1>
+    <hr />
+    <p>building Web apps with ASP.NET Core & AngularJS</></p>
+</div>
+
+<div ng-app="mainApp" ng-controller="directorioController" ng-init="initApp()">
+    <div class="container">
+
+        @* botones para agregar,buscar &Aacute; limpiar *@
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Buscar por nombre/identificacion" aria-describedby="button-addon2" ng-model="pageInfo.search">
+            <button class="btn btn-primary" ng-click="GetPaged()">Buscar</button>
+            <button class="btn btn-light" ng-click="clear()">Limpiar</button>
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalAddPerson">Agregar nueva persona</button>
+        </div>
+        @*Fin botones para agregar,buscar &Aacute; limpiar *@
+
+        @* Toast (mensaje confirmacion, error, etc) *@
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Personas</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    {{message}}
+                </div>
+            </div>
+        </div>
+        @*Fin Toast (mensaje confirmacion, error, etc) *@
+
+
+        @* tabla que muestra las personas registradas *@
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th hidden><label> ID</label> </th>
+                        <th><label> Nombre</label> </th>
+                        <th><label> Apellido Paterno</label> </th>
+                        <th><label> Apellido Materno</label> </th>
+                        <th><label> Identificacion</label> </th>
+                        <th><label> Opciones</label> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in objResult">
+                        <td hidden>{{item.id}}</td>
+                        <td>{{item.nombre}}</td>
+                        <td>{{item.aPaterno}}</td>
+                        <td>{{item.aMaterno}}</td>
+                        <td>{{item.identificacion}}</td>
+                        <td>
+                            <a class="btn btn-primary" href="@Url.Action("Index", "Factura")?identificacion={{item.identificacion}}"> Ver Facturas</a>
+                            <button class="btn btn-danger" ng-click="deletePerson(item.identificacion)">Borrar persona</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <footer class="card-footer">
+            <div class="row">
+                <div class="col-sm-10 col-md-4">
+                    <br />
+                    <pre> Personas {{(pageList.result.length )}} de {{ pageList.totalItemCount }} || Página {{ pageList.pageNumber }} de {{ pageList.pageCount }}</pre>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <uib-pagination total-items="pageList.totalItemCount" max-size="5" ng-model="pageInfo.pageNumber" ng-click="GetPaged()"></uib-pagination>
+@*                     <ul class="pull-right" uib-pagination total-items="pageList.totalItemCount" ng-model="serverSide.pageIndex" items-per-page="serverSide.pageSize" ng-click="GetPaged()"></ul>
+ *@                </div>
+            </div>
+        </footer>
+        @* Fin tabla que muestra las personas registradas *@
+
+
+    </div>
+
+    @* Modal para agregar registro de persona *@
+    <div class="modal fade" id="modalAddPerson" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Formulario de registro</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Nombre:</label>
+                            <input type="text" class="form-control" ng-model="objPersonAdd.nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">A. Paterno:</label>
+                            <input type="text" class="form-control" ng-model="objPersonAdd.aPaterno">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">A. Materno:</label>
+                            <input type="text" class="form-control" ng-model="objPersonAdd.aMaterno">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" ng-click="addPerson()" data-bs-dismiss="modal">Añadir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* Fin Modal para agregar registro de persona *@
+</div>
+
+@section Scripts {
+    <script src="../scripts/App/directorio/directorioController.js"></script>
+    <script src="../scripts/app/directorio/directorioServicio.js"></script>
+}

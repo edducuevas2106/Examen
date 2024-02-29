@@ -1,0 +1,11 @@
+C:\Deploys\Examen\Examen\Entidades\bin\Debug\net8.0\Entidades.deps.json
+C:\Deploys\Examen\Examen\Entidades\bin\Debug\net8.0\Entidades.dll
+C:\Deploys\Examen\Examen\Entidades\bin\Debug\net8.0\Entidades.pdb
+C:\Deploys\Examen\Examen\Entidades\obj\Debug\net8.0\Entidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Deploys\Examen\Examen\Entidades\obj\Debug\net8.0\Entidades.AssemblyInfoInputs.cache
+C:\Deploys\Examen\Examen\Entidades\obj\Debug\net8.0\Entidades.AssemblyInfo.cs
+C:\Deploys\Examen\Examen\Entidades\obj\Debug\net8.0\Entidades.csproj.CoreCompileInputs.cache
+C:\Deploys\Examen\Examen\Entidades\obj\Debug\net8.0\Entidades.dll
+C:\Deploys\Examen\Examen\Entidades\obj\Debug\net8.0\refint\Entidades.dll
+C:\Deploys\Examen\Examen\Entidades\obj\Debug\net8.0\Entidades.pdb
+C:\Deploys\Examen\Examen\Entidades\obj\Debug\net8.0\ref\Entidades.dll

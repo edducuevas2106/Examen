@@ -1,0 +1,87 @@
+﻿.containerbody-content {
+        padding-left: 0%;
+        padding-right: 0%;
+        width: 100%;
+        /*height: 50em;*/
+    }
+
+    /*table, tr, td {
+        border: solid 1px;
+    }*/
+    .TableHeader {
+        background-color: #890f0f;
+        background-image: -moz-linear-gradient(left, rgb(245, 50, 50), #8E1717);
+        background-image: -ms-linear-gradient(left, rgb(245, 50, 50), #8E1717);
+        
+        background-image: -webkit-linear-gradient(left, rgb(245, 50, 50), #8E1717);
+            padding-top: 30px;
+        
+    }
+
+    .TableHeader2 {
+        background-color: #890f0f;
+        background-image: -moz-linear-gradient(top, #ab0d0d, #551111);
+        background-image: -ms-linear-gradient(top, #ab0d0d, #551111);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ab0d0d), to(#551111));
+        background-image: -webkit-linear-gradient(top, #ab0d0d, #551111);
+        border-radius: 40px 40px 0px 0px;
+    }
+
+    .titleHead {
+        /*font-size: 50px;*/
+        color: white;
+    }
+
+    .Margin {
+        width: 100%;
+        
+    }
+
+    .MarginTitle {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+        
+    }
+
+    .TituloMain {
+        color: black;
+        font-size: larger;
+	font-weight:700;
+    }
+
+
+    .Caption {
+        font-family:Impact;
+        font-size: larger;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        color:#0740AB;
+    }
+
+    .CaptionData {
+        font-family:Miriam;
+        font-size: 100px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        color:black;
+    }
+
+    .NumberC {
+        background-color: #8D0E0E;
+        width: 90%;
+        color: white;
+        /*border: solid 4px black;*/
+        /*box-shadow: 4px 4px 6px #888888;*/
+            padding: 20px 22px 26px 0px;
+            text-align:right;
+    }
